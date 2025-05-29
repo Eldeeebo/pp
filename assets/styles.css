@@ -1,0 +1,206 @@
+/* Prompter Extension Styles */
+
+/* General styles */
+.prompter-base {
+  /* Base class for prompter elements, can be used for font settings if needed */
+}
+
+/* Styles for the main prompter panel */
+.prompter-panel {
+  transition: all 0.25s ease-out 0s;
+  opacity: 0; /* Default, JS will add .visible to show */
+}
+
+/* Style for the title in the prompter panel */
+.prompter-title {
+  font-size: 1.125rem; /* text-lg */
+  line-height: 1.75rem;
+  font-weight: 700; /* font-bold */
+  color: #E0E0E0; /* Placeholder for text-descriptionTextColor */
+  margin-bottom: 1rem; /* mb-4 */
+  margin-top: 1rem; /* mt-4 */
+}
+
+/* Styles for the "Add New Prompt" button (the plus icon) */
+.add-prompt-button {
+  float: right; 
+  color: #A5D6A7; /* Placeholder for text-primaryLight */
+  height: 26px;
+  width: 26px;
+  background-color: rgba(104, 124, 153, 0.49);
+  border-radius: 4px;
+  transition: all 0.125s ease-out 0s;
+  border: none; 
+  padding: 0; 
+  display: inline-flex; 
+  align-items: center;
+  justify-content: center;
+}
+
+.add-prompt-button:hover {
+  background-color: rgba(104, 124, 153, 0.85);
+}
+
+/* Styles for individual prompt windows */
+.prompt-window {
+  background-color: #000000; /* bg-black */
+  border-radius: 0.75rem; /* rounded-xl */
+  padding: 1rem; /* p-4 */
+  margin-top: 0.5rem; /* mt-2 */
+  transition: all 0.125s ease-out 0s;
+  opacity: 0; /* Default, JS will add .visible to show */
+  position: relative; /* For positioning feedback messages */
+}
+
+/* Container for title input and suggest button */
+.prompt-title-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem; /* mb-2, moved from input to container */
+}
+
+/* Styles for the title input in a prompt window */
+.prompt-title-input {
+  flex-grow: 1; /* Allow input to take available space */
+  background-color: transparent;
+  color: white;
+  border: none;
+  outline: none;
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.25rem;
+  font-weight: 500; /* font-medium */
+  /* margin-bottom removed, handled by container */
+}
+
+.prompt-title-input:read-only {
+  /* Optional: different style for read-only state if needed */
+}
+
+/* Styles for the "Suggest Title" button */
+.suggest-title-button {
+  margin-left: 8px; /* Space between input and button */
+  padding: 4px 8px;
+  font-size: 0.8em;
+  cursor: pointer;
+  background-color: #28a745; /* Greenish, example */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.125s ease-out;
+}
+
+.suggest-title-button:hover {
+  background-color: #218838; /* Darker green */
+}
+
+.suggest-title-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  background-color: #555; /* Grey out when disabled */
+}
+
+
+/* Styles for the content textarea/div in a prompt window */
+.prompt-content-textarea {
+  width: 100%; 
+  background-color: transparent;
+  color: white;
+  border: none;
+  outline: none;
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.25rem;
+  height: 100px;
+  overflow-y: scroll;
+}
+
+.prompt-content-textarea:not([contenteditable="true"]) {
+   /* Optional: different style for non-editable state if needed */
+}
+
+.prompt-content-textarea[contenteditable="true"] {
+  outline: 1px solid #4db6ac; /* Example: outline when editable */
+  background-color: #0a0a0a; /* Slightly different background when editable */
+}
+
+
+/* Styles for the button container in a prompt window */
+.prompt-button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem; /* mt-2 */
+}
+
+/* Common styles for action buttons (Copy, Delete, Save, Edit) within a prompt window */
+.prompt-action-button {
+  color: #A5D6A7; 
+  height: 26px;
+  padding: 0 6px; 
+  min-width: 26px; 
+  background-color: #111827;
+  border-radius: 4px;
+  transition: all 0.125s ease-out 0s;
+  margin-left: 4px;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem; 
+  line-height: 1;
+}
+
+.prompt-action-button:active {
+  opacity: 0.5; 
+}
+
+/* Class to make elements visible (e.g., for fade-in effects) */
+.visible {
+  opacity: 1;
+}
+
+/* Feedback message style */
+.prompt-feedback-message {
+  position: absolute;
+  bottom: 5px; 
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4db6ac;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+.prompt-feedback-message.visible {
+  opacity: 1;
+}
+
+
+/* Utility classes */
+.text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+.font-bold { font-weight: 700; }
+.mb-4 { margin-bottom: 1rem; }
+.mt-4 { margin-top: 1rem; }
+.float-right { float: right; }
+.bg-black { background-color: #000000; }
+.rounded-xl { border-radius: 0.75rem; }
+.p-4 { padding: 1rem; }
+.mt-2 { margin-top: 0.5rem; }
+.w-full { width: 100%; }
+.bg-transparent { background-color: transparent; }
+.text-white { color: white; }
+.border-none { border: none; }
+.outline-none { outline: none; }
+.text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+.font-medium { font-weight: 500; }
+/* .mb-2 { margin-bottom: 0.5rem; } /* Replaced by container margin */
+.flex { display: flex; }
+.justify-end { justify-content: flex-end; }
+
+.prompt-action-button svg, .add-prompt-button svg {
+    width: 20px; 
+    height: 20px;
+    fill: currentColor; 
+}
