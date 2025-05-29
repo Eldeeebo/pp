@@ -19,12 +19,7 @@
 				"https://gemini.google.com/*"
 			],
 			"js": [
-				"mainContentScript.js",
-				"storageManager.js",
-				"domManipulator.js",
-				"uiEventHandlers.js",
-				"promptManager.js",
-				"aiFeatures.js"
+				"dist/bundle.js"
 			],
 			"css": ["assets/styles.css"]
 		}
